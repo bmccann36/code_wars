@@ -1,3 +1,7 @@
+/*
+link to problem
+https://www.codewars.com/kata/undo-slash-redo/javascript
+*/
 
 function undoRedo(object) {
   let _prevStates = []  // keep track of deletes and sets

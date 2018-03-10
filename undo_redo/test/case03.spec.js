@@ -1,0 +1,36 @@
+const chai = require('chai')
+const expect = chai.expect
+// const undoRedo = require('../undoRedo')
+const undoRedo = require('../withLogs')
+
+
+it('does mixed test', () => {
+  let obj = {}
+  const testCase = undoRedo(obj)
+  testCase.set('x', 5)
+  expect(testCase.get('x')).to.equal(5)
+  testCase.set('y', 10)
+  expect(testCase.get('y')).to.equal(10)
+  testCase.set('y', 8)
+  expect(testCase.get('y')).to.equal(8)
+  testCase.del('y')
+  expect(testCase.get('y')).to.equal(undefined)
+  testCase.undo()
+  expect(testCase.get('y')).to.equal(8)
+  testCase.undo()
+  expect(testCase.get('y')).to.equal(10)
+  testCase.undo()
+  expect(testCase.get('y')).to.equal(undefined)
+  testCase.undo()
+  expect(testCase.get('x')).to.equal(undefined)
+  testCase.redo()
+  testCase.redo()
+  testCase.redo()
+  expect(testCase.get('x')).to.equal(5)
+  expect(testCase.get('y')).to.equal(8)
+  testCase.redo()
+  testCase.set('x', 55)
+  testCase.undo()
+  expect(testCase.get('x')).to.equal(5)
+})
+

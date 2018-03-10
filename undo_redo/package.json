@@ -1,0 +1,15 @@
+{
+  "name": "code-wars",
+  "version": "1.0.0",
+  "description": "sandbox for codewars problems",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "brian mccann",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.0.0"
+  }
+}
